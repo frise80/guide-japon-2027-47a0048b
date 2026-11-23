@@ -22,11 +22,11 @@ a{color:var(--red);text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* ---------- header ---------- */
-header.hero{background:
-  linear-gradient(180deg,rgba(28,28,42,.88) 0%,rgba(28,28,42,.28) 38%,rgba(70,15,45,.40) 64%,rgba(110,0,28,.88) 100%),
-  url("cover.jpg") center/cover no-repeat;
-  background-position:49% 57%;
-  color:#fff;padding:64px 20px 150px;position:relative;overflow:hidden}
+header.hero{background:linear-gradient(165deg,#2a2a3a 0%,#3d2b33 60%,var(--red-dark) 100%);
+  color:#fff;padding:56px 20px 0;position:relative;overflow:hidden}
+.hero-photo{display:block;width:100%;max-width:1000px;margin:28px auto 0;object-fit:cover;
+  object-position:45% 61%;height:auto}
+@media(min-width:700px){.hero-photo{height:440px}}
 header.hero::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:70px;
   background:var(--paper);clip-path:polygon(0 100%,100% 0,100% 100%)}
 .hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
@@ -185,6 +185,7 @@ footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 20px;text-a
       <span class="chip">💴 Conversion ≈ 170 ¥ = 1 €</span>
     </div>
   </div>
+  <img class="hero-photo" src="cover.jpg" alt="Photo de famille — voyage au Japon 2027">
 </header>
 
 <nav id="nav">
