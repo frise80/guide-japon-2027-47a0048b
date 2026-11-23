@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Voyage au Japon — Hiver 2027 · Guide de voyage</title>
+<style>
+:root{
+  --red:#bc002d; --red-dark:#8f0022; --ink:#23232e; --muted:#6b6b76;
+  --paper:#faf8f4; --card:#ffffff; --line:#e6e2d9; --gold:#c9a227;
+  --green:#2e7d32; --orange:#e07b00; --blue:#1e6fb5;
+  --radius:14px; --shadow:0 2px 10px rgba(35,35,46,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+a{color:var(--red);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- header ---------- */
+header.hero{background:linear-gradient(160deg,#2a2a3a 0%,#3d2b33 60%,var(--red-dark) 100%);
+  color:#fff;padding:56px 20px 88px;position:relative;overflow:hidden}
+header.hero::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:70px;
+  background:var(--paper);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.hero .flag{display:inline-block;width:34px;height:24px;border-radius:4px;background:#fff;
+  position:relative;margin-bottom:14px;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.hero .flag::after{content:"";position:absolute;inset:0;margin:auto;width:13px;height:13px;
+  border-radius:50%;background:var(--red)}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.6rem);letter-spacing:.5px}
+.hero p.sub{opacity:.85;margin-top:6px;font-size:1.05rem}
+.hero .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.hero .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:5px 14px;border-radius:99px;font-size:.85rem;backdrop-filter:blur(4px)}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:#ffffffee;backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+nav ul{display:flex;list-style:none;overflow-x:auto;max-width:1000px;margin:0 auto;padding:0 10px;
+  scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav a{display:block;padding:13px 14px;color:var(--muted);font-weight:600;font-size:.88rem;
+  white-space:nowrap;border-bottom:3px solid transparent}
+nav a:hover{color:var(--red);text-decoration:none}
+nav a.active{color:var(--red);border-bottom-color:var(--red)}
+
+/* ---------- layout ---------- */
+main{max-width:1000px;margin:-50px auto 0;padding:0 20px 60px;position:relative;z-index:2}
+section{margin-top:56px;scroll-margin-top:70px}
+h2{font-size:1.5rem;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+h2 .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+  border-radius:50%;background:var(--red);color:#fff;font-size:.95rem;flex:none}
+.lead{color:var(--muted);margin-bottom:18px;max-width:720px}
+
+/* ---------- cards & misc ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px 22px}
+.grid{display:grid;gap:14px}
+.grid.cols2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid.cols3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.pill{display:inline-block;padding:3px 12px;border-radius:99px;font-size:.78rem;font-weight:700}
+.pill.paye{background:#e3f2e5;color:var(--green)}
+.pill.apayer{background:#fdeeda;color:var(--orange)}
+.pill.info{background:#e3edf7;color:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:99px;
+  font-weight:600;font-size:.88rem;border:1px solid var(--line);background:#fff;color:var(--ink);
+  transition:.15s}
+.btn:hover{border-color:var(--red);color:var(--red);text-decoration:none;transform:translateY(-1px)}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.btn.primary:hover{background:var(--red-dark);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:1.45rem;color:var(--red)}
+.stat span{font-size:.82rem;color:var(--muted)}
+
+/* ---------- timeline ---------- */
+.timeline{position:relative;margin:10px 0 0 8px;padding-left:26px;border-left:3px solid var(--line)}
+.tl-item{position:relative;padding:0 0 20px 8px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-33px;top:5px;width:13px;height:13px;
+  border-radius:50%;background:var(--red);border:3px solid #fff;box-shadow:0 0 0 2px var(--red)}
+.tl-date{font-weight:800;color:var(--red);font-size:.85rem;letter-spacing:.5px}
+.tl-title{font-weight:700}
+.tl-desc{color:var(--muted);font-size:.92rem}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--card);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem}
+th{background:#f1ede5;text-align:left;padding:11px 13px;font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--muted);border-bottom:2px solid var(--line)}
+td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr.total td{background:#f8f5ef;font-weight:800}
+td .small{color:var(--muted);font-size:.82rem;display:block}
+
+/* ---------- day cards ---------- */
+.day{display:grid;grid-template-columns:86px 1fr;gap:16px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:12px;
+  box-shadow:var(--shadow)}
+.day .date{background:#f6e9ec;border-radius:10px;padding:8px 4px;text-align:center;
+  height:fit-content}
+.day .date b{display:block;color:var(--red);font-size:1.25rem;line-height:1.1}
+.day .date span{font-size:.72rem;color:var(--muted);text-transform:uppercase}
+.day h3{font-size:1.02rem;margin-bottom:2px}
+.day p{color:var(--muted);font-size:.92rem}
+.day .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.day .links a{font-size:.78rem;padding:4px 11px;border-radius:99px;background:#f4f1ea;
+  border:1px solid var(--line);color:var(--ink)}
+.day .links a:hover{border-color:var(--red);color:var(--red);text-decoration:none}
+.day.transfer{border-left:4px solid var(--red)}
+@media(max-width:560px){.day{grid-template-columns:70px 1fr}}
+
+/* ---------- hotels ---------- */
+.hotel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.hotel .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.hotel h3{font-size:1.02rem}
+.hotel .dates{color:var(--red);font-weight:700;font-size:.85rem;margin:2px 0 8px}
+.hotel ul{list-style:none;font-size:.9rem;color:var(--muted);flex:1}
+.hotel ul li{padding:3px 0 3px 20px;position:relative}
+.hotel ul li::before{content:"›";position:absolute;left:6px;color:var(--red);font-weight:800}
+.callout{border-left:5px solid var(--blue);background:#eef4fa;border-radius:0 var(--radius) var(--radius) 0;
+  padding:14px 18px;font-size:.92rem;margin-top:16px}
+.callout.warn{border-color:var(--orange);background:#fdf3e6}
+.callout h4{font-size:.95rem;margin-bottom:4px}
+
+/* ---------- budget bars ---------- */
+.bar{margin:10px 0}
+.bar .lab{display:flex;justify-content:space-between;font-size:.9rem;font-weight:600;margin-bottom:4px}
+.bar .track{height:12px;border-radius:99px;background:#efece4;overflow:hidden}
+.bar .fill{height:100%;border-radius:99px}
+.fill.f1{background:var(--red)} .fill.f2{background:var(--gold)} .fill.f3{background:var(--blue)}
+
+/* ---------- tips ---------- */
+.tip{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;box-shadow:var(--shadow)}
+.tip h3{font-size:.98rem;display:flex;gap:8px;align-items:baseline}
+.tip p{color:var(--muted);font-size:.9rem;margin-top:4px}
+
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 20px;text-align:center;
+  color:var(--muted);font-size:.85rem}
+#top-btn{position:fixed;bottom:22px;right:22px;width:46px;height:46px;border-radius:50%;
+  background:var(--red);color:#fff;border:none;font-size:1.2rem;cursor:pointer;opacity:0;
+  pointer-events:none;transition:.25s;box-shadow:0 4px 14px rgba(188,0,45,.4);z-index:60}
+#top-btn.show{opacity:1;pointer-events:auto}
+@media print{nav,#top-btn{display:none} body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="flag" aria-hidden="true"></span>
+    <h1>Voyage au Japon — Hiver 2027</h1>
+    <p class="sub">Guide familial · du samedi 30 janvier au dimanche 21 février 2027</p>
+    <div class="chips">
+      <span class="chip">✈️ 21 jours</span>
+      <span class="chip">👥 Adrien, Marianne + Chloé, Baptiste, Hanaé &nbsp;+&nbsp; Lia (sur place)</span>
+      <span class="chip">🚄 Tokyo · Nikko · Nasu · Ito · Kyoto · Onomichi · Hiroshima</span>
+      <span class="chip">💴 Conversion ≈ 170 ¥ = 1 €</span>
+    </div>
+  </div>
+</header>
+
+<nav id="nav">
+  <ul>
+    <li><a href="#overview">Vue d'ensemble</a></li>
+    <li><a href="#vols">Vols</a></li>
+    <li><a href="#boucle1">Boucle Adrien &amp; Marianne</a></li>
+    <li><a href="#boucle2">Boucle en famille</a></li>
+    <li><a href="#trains">Trains &amp; coûts</a></li>
+    <li><a href="#hebergements">Hébergements</a></li>
+    <li><a href="#budget">Budget</a></li>
+    <li><a href="#conseils">Conseils pratiques</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ======================= OVERVIEW ======================= -->
+<section id="overview">
+  <h2><span class="num">1</span>Vue d'ensemble</h2>
+  <p class="lead">Deux vagues de départ : Adrien &amp; Marianne partent en premier (30 janv.) ; Chloé, Baptiste et Hanaé les rejoignent le 7 février, et Lia — déjà sur place à Tokyo (Sendagi) — se joint au groupe pour toute la boucle familiale. Vol retour groupé le 20 février au soir, arrivée à Paris le 21 au matin.</p>
+
+  <div class="stats">
+    <div class="stat"><b>21</b><span>jours</span></div>
+    <div class="stat"><b>6</b><span>voyageurs en boucle familiale</span></div>
+    <div class="stat"><b>6</b><span>villes-étapes</span></div>
+    <div class="stat"><b>8</b><span>hébergements (19 nuits)</span></div>
+    <div class="stat"><b>13</b><span>trajets en train</span></div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3 style="margin-bottom:12px">Le voyage en un coup d'œil</h3>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-date">30–31 JANV.</div><div class="tl-title">Départ CDG → Tokyo</div><div class="tl-desc">Vol direct ANA 216, arrivée à Haneda à 16h10</div></div>
+      <div class="tl-item"><div class="tl-date">31/01 – 02/02</div><div class="tl-title">Tokyo (Yanaka)</div><div class="tl-desc">Repos et découverte du quartier</div></div>
+      <div class="tl-item"><div class="tl-date">02 – 04 FÉVR.</div><div class="tl-title">Nikko</div><div class="tl-desc">2 h de train · sanctuaires classés · hôtel à 100 m de la gare</div></div>
+      <div class="tl-item"><div class="tl-date">04 – 06 FÉVR.</div><div class="tl-title">Nasu (onsen)</div><div class="tl-desc">Villa avec onsen privé dans la montagne</div></div>
+      <div class="tl-item"><div class="tl-date">06 – 11 FÉVR.</div><div class="tl-title">Tokyo à six</div><div class="tl-desc">Retrouvailles le 7/02 : les enfants débarquent à Narita, Lia se joint au groupe · teamLab, Mont Takao, Kamakura</div></div>
+      <div class="tl-item"><div class="tl-date">11 – 13 FÉVR.</div><div class="tl-title">Ito — péninsule d'Izu</div><div class="tl-desc">Ryokan historique, bains chauds</div></div>
+      <div class="tl-item"><div class="tl-date">13 – 16 FÉVR.</div><div class="tl-title">Kyoto</div><div class="tl-desc">Pavillon d'Or, Fushimi Inari, Arashiyama</div></div>
+      <div class="tl-item"><div class="tl-date">16 – 18 FÉVR.</div><div class="tl-title">Onomichi</div><div class="tl-desc">Temple Senko-ji · excursion à Tomonoura</div></div>
+      <div class="tl-item"><div class="tl-date">18 – 20 FÉVR.</div><div class="tl-title">Hiroshima</div><div class="tl-desc">Mémorial de la Paix, Miyajima</div></div>
+      <div class="tl-item"><div class="tl-date">20 – 21 FÉVR.</div><div class="tl-title">Retour en France</div><div class="tl-desc">Train Hiroshima → Tokyo (≈ 4 h) puis vol 22h55 depuis Haneda, arrivée CDG 09h15 (Lia reste à Tokyo)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= VOLS ======================= -->
+<section id="vols">
+  <h2><span class="num">2</span>Vols internationaux</h2>
+  <p class="lead">Tout le monde revient ensemble (sauf Lia, qui reste au Japon) : le vol retour OS8564 du 20 février est le même pour les cinq voyageurs venant de France. Adrien &amp; Marianne arrivent à <b>Haneda</b> (proche du centre) ; Chloé, Baptiste et Hanaé arrivent à <b>Narita</b> (60 km à l'est — Skyliner recommandé, 41 min jusqu'à Ueno).</p>
+
+  <div class="tablewrap">
+    <table>
+      <tr><th>Groupe</th><th>Vol</th><th>Trajet</th><th>Départ</th><th>Arrivée</th><th>Référence</th></tr>
+      <tr><td>Adrien + Marianne</td><td>ANA 216 <span class="small">vol direct</span></td><td>Paris CDG → Tokyo <b>Haneda</b></td><td>sam. 30/01 · 18h40</td><td>dim. 31/01 · 16h10</td><td>Z56AL6 <span class="small">Expedia n° 73535096327006</span></td></tr>
+      <tr><td>Chloé, Baptiste, Hanaé</td><td>Swiss LX633</td><td>Paris CDG → Zurich</td><td>sam. 06/02 · 09h55</td><td>06/02 · 11h20</td><td>Z4SKV4</td></tr>
+      <tr><td>Chloé, Baptiste, Hanaé</td><td>Swiss LX160</td><td>Zurich → Tokyo <b>Narita</b></td><td>sam. 06/02 · 13h05</td><td>dim. 07/02 · 10h20</td><td>Z4SKV4</td></tr>
+      <tr><td>Tout le monde (5)</td><td>Austrian OS8564 <span class="small">opéré par ANA</span></td><td>Tokyo Haneda → Vienne</td><td>sam. 20/02 · 22h55</td><td>dim. 21/02 · 06h00</td><td>Z56AL6 / Z4SKV4</td></tr>
+      <tr><td>Tout le monde (5)</td><td>Austrian OS361</td><td>Vienne → Paris CDG</td><td>dim. 21/02 · 07h10</td><td>dim. 21/02 · 09h15</td><td>Z56AL6 / Z4SKV4</td></tr>
+    </table>
+  </div>
+
+  <div class="grid cols2" style="margin-top:14px">
+    <div class="card">
+      <h3 style="margin-bottom:8px">Réflexes vols</h3>
+      <ul style="padding-left:18px;font-size:.92rem;color:var(--muted)">
+        <li>Enregistrement en ligne 23 h avant le départ · Terminal 1 à CDG</li>
+        <li>Economy Comfort chez Swiss : 1 bagage en soute inclus par passager</li>
+        <li>Formalités Japon : <a href="https://services.digital.go.jp/en/visit-japan-web/" target="_blank">Visit Japan Web</a> (immigration + douane) à remplir avant le départ</li>
+        <li>Gérer la réservation Swiss/Lufthansa : <a href="https://www.lufthansa.com/fr/fr/my-bookings" target="_blank">Mes réservations</a> (réf. Z4SKV4)</li>
+        <li>Gérer le voyage Expedia : <a href="https://www.expedia.fr/trips" target="_blank">Mes voyages</a> (n° 73535096327006)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:8px">Depuis les aéroports</h3>
+      <ul style="padding-left:18px;font-size:.92rem;color:var(--muted)">
+        <li><b>Haneda → Tokyo</b> : monorail ou Keikyu, ≈ 800 ¥ · <a href="https://www.google.com/maps/dir/?api=1&origin=Haneda+Airport+Terminal+3&destination=Yanaka+3-chome+Tokyo&travelmode=transit" target="_blank">itinéraire</a></li>
+        <li><b>Narita → Tokyo</b> : <a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/en/" target="_blank">Keisei Skyliner</a> 2 580 ¥ (41 min jusqu'à Ueno) ou N'EX 3 140 ¥ · <a href="https://www.google.com/maps/dir/?api=1&origin=Narita+Airport+Terminal+1&destination=Hon-Komagome+Station+Tokyo&travelmode=transit" target="_blank">itinéraire</a></li>
+        <li>Dernier Skyliner de Narita ≈ 23h ; en cas de retard du vol, les JR depuis Narita circulent aussi</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BOUCLE 1 ======================= -->
+<section id="boucle1">
+  <h2><span class="num">3</span>Boucle 1 — Adrien &amp; Marianne</h2>
+  <p class="lead">Première semaine en duo : les sanctuaires de Nikko, puis la montagne et les sources chaudes de Nasu, avant de retrouver tout le monde à Tokyo.</p>
+
+  <div class="day">
+    <div class="date"><b>31</b><span>janv.</span></div>
+    <div><h3>Arrivée à Haneda</h3><p>Vol ANA 216, atterrissage 16h10. Monorail + Yamanote jusqu'à l'appartement de Yanaka (check-in après 16h). Repos.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Haneda+Airport+Terminal+3&destination=Yanaka+3-chome+Tokyo&travelmode=transit" target="_blank">🗺️ Itinéraire</a><a href="#hebergements">🏨 Notre logement</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>01</b><span>févr.</span></div>
+    <div><h3>Journée douce à Tokyo</h3><p>Quartier de Yanaka : ruelles anciennes, cimetière, temples. Repos et repérage.</p>
+    <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Yanaka+Tokyo" target="_blank">🗺️ Quartier de Yanaka</a></div></div>
+  </div>
+  <div class="day transfer">
+    <div class="date"><b>02</b><span>févr.</span></div>
+    <div><h3>🚄 Tokyo → Nikko</h3><p>≈ 2 h de train (Tobu SPacia depuis Asakusa, ou JR via Utsunomiya). Hôtel à 100 m de la gare Tobu-Nikko, check-in dès 15h.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Asakusa+Station&destination=Tobu-Nikko+Station&travelmode=transit" target="_blank">🗺️ Itinéraire en train</a><a href="https://www.tobu.co.jp/en/" target="_blank">🚆 Tobu Railway</a><a href="#hebergements">🏨 Nikko Station Hotel</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>03</b><span>févr.</span></div>
+    <div><h3>Nikko — sanctuaires</h3><p>Sanctuaire Tosho-gu et son mausolée, pont Shinkyo, lacs et chutes (Kegon) si le temps le permet.</p>
+    <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Nikko+Toshogu+Shrine" target="_blank">🗺️ Tosho-gu</a><a href="https://www.google.com/maps/search/?api=1&query=Shinkyo+Bridge+Nikko" target="_blank">🗺️ Pont Shinkyo</a><a href="https://www.kanpai.fr/nikko" target="_blank">📖 Guide Kanpai</a></div></div>
+  </div>
+  <div class="day transfer">
+    <div class="date"><b>04</b><span>févr.</span></div>
+    <div><h3>🚄 Nikko → Nasu</h3><p>≈ 3 h de train avec correspondances (Utsunomiya, Kuroiso) puis bus/taxi jusqu'à la villa. Check-in entre 14h30 et 20h.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Nikko+Station&destination=Nasu+Yumoto+Onsen&travelmode=transit" target="_blank">🗺️ Itinéraire en train</a><a href="#hebergements">🏨 Villa onsen Nasu</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>05</b><span>févr.</span></div>
+    <div><h3>Nasu — sources chaudes</h3><p>Onsen de la villa, forêt de Nasu. Option : village thermal historique de Yunishigawa.</p>
+    <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Nasu+Onsen" target="_blank">🗺️ Nasu Onsen</a><a href="https://www.google.com/maps/search/?api=1&query=Yunishigawa+Onsen" target="_blank">🗺️ Yunishigawa</a></div></div>
+  </div>
+  <div class="day transfer">
+    <div class="date"><b>06</b><span>févr.</span></div>
+    <div><h3>🚄 Nasu → Tokyo</h3><p>Bus/taxi jusqu'à la gare de Nasushiobara puis Shinkansen Yamabiko (1h10). Installation à l'appartement Bunkyo House 301 (15h–23h30), tout près du quartier de Lia à Sendagi.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Nasushiobara+Station&destination=Hon-Komagome+Station+Tokyo&travelmode=transit" target="_blank">🗺️ Itinéraire en train</a><a href="#hebergements">🏨 Bunkyo House 301</a></div></div>
+  </div>
+</section>
+
+<!-- ======================= BOUCLE 2 ======================= -->
+<section id="boucle2">
+  <h2><span class="num">4</span>Boucle 2 — En famille</h2>
+  <p class="lead">Deux semaines de voyage à six — Adrien &amp; Marianne, Chloé, Baptiste, Hanaé et Lia qui vit sur place — à travers le centre du Japon.</p>
+
+  <div class="day">
+    <div class="date"><b>07</b><span>févr.</span></div>
+    <div><h3>Arrivée des enfants · retrouvailles avec Lia</h3><p>Atterrissage à Narita 10h20 : Skyliner jusqu'à Ueno (41 min) puis JR jusqu'à l'appartement. Après-midi tranquille dans le quartier.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Narita+Airport+Terminal+1&destination=Hon-Komagome+Station+Tokyo&travelmode=transit" target="_blank">🗺️ Narita → logement</a><a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/en/" target="_blank">🚄 Skyliner</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>08</b><span>févr.</span></div>
+    <div><h3>teamLab Planets + Tokyo</h3><p>teamLab Planets (billetterie en ligne obligatoire, réserver dès maintenant !) puis Shibuya, sanctuaire Meiji — Lia en guide locale.</p>
+    <div class="links"><a href="https://www.teamlab.art/e/planets/" target="_blank">🎟️ Billets teamLab</a><a href="https://www.google.com/maps/search/?api=1&query=teamLab+Planets+Tokyo" target="_blank">🗺️ teamLab Planets</a><a href="https://www.google.com/maps/search/?api=1&query=Shibuya+Crossing" target="_blank">🗺️ Shibuya</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>09</b><span>févr.</span></div>
+    <div><h3>Mont Takao</h3><p>Randonnée facile, temple, vue sur le Fuji par temps clair (≈ 1 h de train, ligne Keio depuis Shinjuku).</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Hon-Komagome+Station&destination=Mount+Takao&travelmode=transit" target="_blank">🗺️ Itinéraire</a><a href="https://www.google.com/maps/search/?api=1&query=Takao-san+Yakuo-in+Temple" target="_blank">🗺️ Temple Yakuo-in</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>10</b><span>févr.</span></div>
+    <div><h3>Kamakura</h3><p>Grand Bouddha (Kotoku-in), temple Hase-dera, Engaku-ji — ≈ 1 h de train JR ligne Yokosuka.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Tokyo+Station&destination=Kamakura+Station&travelmode=transit" target="_blank">🗺️ Itinéraire en train</a><a href="https://www.google.com/maps/search/?api=1&query=Kotoku-in+Great+Buddha+Kamakura" target="_blank">🗺️ Grand Bouddha</a><a href="https://www.google.com/maps/search/?api=1&query=Hasedera+Temple+Kamakura" target="_blank">🗺️ Hase-dera</a></div></div>
+  </div>
+  <div class="day transfer">
+    <div class="date"><b>11</b><span>févr.</span></div>
+    <div><h3>🚄 Tokyo (Ueno) → Ito</h3><p>Départ gare d'Ueno (Shinkansen via Atami ou train direct Odoriko). Ryokan historique K's House au bord de la rivière (check-in 15h–20h). Bains.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Ueno+Station&destination=Ito+Station&travelmode=transit" target="_blank">🗺️ Itinéraire en train</a><a href="#hebergements">🏨 K's House Ito</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>12</b><span>févr.</span></div>
+    <div><h3>Ito — journée sans train</h3><p>Onsen du ryokan, vieux quartier, côte Jogasaki, option Atagawa.</p>
+    <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Jogasaki+Coast" target="_blank">🗺️ Côte Jogasaki</a><a href="https://www.google.com/maps/search/?api=1&query=Ito+Onsen" target="_blank">🗺️ Ito Onsen</a></div></div>
+  </div>
+  <div class="day transfer">
+    <div class="date"><b>13</b><span>févr.</span></div>
+    <div><h3>🚄 Ito → Kyoto</h3><p>3 h15 à 3 h40 (Odoriko ou Shinkansen via Atami/Tokyo). Travelodge dès 15h. Après-midi : Pavillon d'Or.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Ito+Station&destination=Kyoto+Station&travelmode=transit" target="_blank">🗺️ Itinéraire en train</a><a href="#hebergements">🏨 Travelodge Kyoto</a><a href="https://www.google.com/maps/search/?api=1&query=Kinkaku-ji" target="_blank">🗺️ Pavillon d'Or</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>14</b><span>févr.</span></div>
+    <div><h3>Kyoto — Fushimi Inari</h3><p>Sanctuaire Fushimi Inari (y aller tôt le matin !), Gion, château Nijo.</p>
+    <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha" target="_blank">🗺️ Fushimi Inari</a><a href="https://www.google.com/maps/search/?api=1&query=Gion+Kyoto" target="_blank">🗺️ Gion</a><a href="https://www.google.com/maps/search/?api=1&query=Nijo+Castle+Kyoto" target="_blank">🗺️ Château Nijo</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>15</b><span>févr.</span></div>
+    <div><h3>Kyoto — Arashiyama</h3><p>Ouest de Kyoto : forêt de bambous, temple Tenryu-ji, rivière Hozu.</p>
+    <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove" target="_blank">🗺️ Forêt de bambous</a><a href="https://www.google.com/maps/search/?api=1&query=Tenryu-ji+Temple" target="_blank">🗺️ Tenryu-ji</a></div></div>
+  </div>
+  <div class="day transfer">
+    <div class="date"><b>16</b><span>févr.</span></div>
+    <div><h3>🚄 Kyoto → Onomichi</h3><p>≈ 1 h40 de Shinkansen (descendre à Fukuyama ou Shin-Onomichi puis train local). Guest house sur la colline (check-in 15h–22h). Senko-ji au coucher du soleil.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Onomichi+Station&travelmode=transit" target="_blank">🗺️ Itinéraire en train</a><a href="#hebergements">🏨 Miharashi-tei</a><a href="https://www.google.com/maps/search/?api=1&query=Senkoji+Temple+Onomichi" target="_blank">🗺️ Senko-ji</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>17</b><span>févr.</span></div>
+    <div><h3>Tomonoura</h3><p>Excursion A/R dans la journée (≈ 1 h45) : port traditionnel de la mer Intérieure, village de Ponyo.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Onomichi+Station&destination=Tomonoura&travelmode=transit" target="_blank">🗺️ Itinéraire</a><a href="https://www.google.com/maps/search/?api=1&query=Tomonoura+Fukuyama" target="_blank">🗺️ Tomonoura</a></div></div>
+  </div>
+  <div class="day transfer">
+    <div class="date"><b>18</b><span>févr.</span></div>
+    <div><h3>🚄 Onomichi → Hiroshima</h3><p>40 min de Shinkansen. Appartement près du Parc de la Paix, self check-in dès 15h (instructions envoyées vers 9h le matin même).</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Onomichi+Station&destination=Hiroshima+Station&travelmode=transit" target="_blank">🗺️ Itinéraire en train</a><a href="#hebergements">🏨 Dai3kuboi</a></div></div>
+  </div>
+  <div class="day">
+    <div class="date"><b>19</b><span>févr.</span></div>
+    <div><h3>Hiroshima &amp; Miyajima</h3><p>Mémorial de la Paix et dôme Genbaku ; excursion à Miyajima — torii flottant d'Itsukushima (tram + ferry ≈ 1 000 ¥ A/R).</p>
+    <div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Hiroshima+Peace+Memorial" target="_blank">🗺️ Parc de la Paix</a><a href="https://www.google.com/maps/search/?api=1&query=Itsukushima+Shrine+Miyajima" target="_blank">🗺️ Miyajima</a></div></div>
+  </div>
+  <div class="day transfer">
+    <div class="date"><b>20</b><span>févr.</span></div>
+    <div><h3>🚄 Hiroshima → Tokyo → vol retour</h3><p>Dernier grand trajet : Nozomi (≈ 4 h) puis monorail vers Haneda. Enregistrement et vol 22h55 — Lia reste à Tokyo.</p>
+    <div class="links"><a href="https://www.google.com/maps/dir/?api=1&origin=Hiroshima+Station&destination=Haneda+Airport+Terminal+3&travelmode=transit" target="_blank">🗺️ Itinéraire complet</a><a href="#vols">✈️ Détails du vol</a></div></div>
+  </div>
+</section>
+
+<!-- ======================= TRAINS ======================= -->
+<section id="trains">
+  <h2><span class="num">5</span>Les trains : itinéraires et coûts</h2>
+  <p class="lead">Prix par personne, place assise réservée. Enfants 6–11 ans : moitié prix. Budget total indicatif : ≈ 22 000 ¥ (≈ 130 €) pour la boucle Adrien &amp; Marianne et ≈ 55 800 ¥ (≈ 330 €) par personne pour la boucle familiale (Lia comprise), soit ≈ 335 000 ¥ (≈ 2 000 €) pour le groupe.</p>
+
+  <div class="tablewrap">
+    <table>
+      <tr><th>Date</th><th>Trajet</th><th>Durée</th><th>Trains</th><th>Prix / pers.</th><th>Plan</th></tr>
+      <tr><td>31/01</td><td>Haneda → Tokyo (Yanaka)</td><td>50–60 min</td><td>Monorail + Yamanote (ou Keikyu + JR)</td><td>≈ 800 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Haneda+Airport+Terminal+3&destination=Yanaka+3-chome+Tokyo&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>02/02</td><td>Tokyo → Nikko</td><td>2 h</td><td>Tobu SPacia depuis Asakusa (2h05) ou JR via Utsunomiya</td><td>2 800 ¥ / 2 000 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Asakusa+Station&destination=Tobu-Nikko+Station&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>04/02</td><td>Nikko → Nasu (Yumoto)</td><td>≈ 3 h</td><td>JR ligne Nikko → Utsunomiya → Kuroiso, puis bus/taxi jusqu'à la villa</td><td>≈ 2 500 ¥ + taxi</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Nikko+Station&destination=Nasu+Yumoto+Onsen&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>06/02</td><td>Nasu → Tokyo</td><td>2 h30</td><td>Bus/taxi → Nasushiobara, puis Shinkansen Yamabiko (1h10) · JR local : 3 h40, ≈ 2 300 ¥</td><td>≈ 5 100 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Nasushiobara+Station&destination=Tokyo+Station&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>07/02</td><td>Narita → Tokyo (Bunkyo)</td><td>≈ 1 h</td><td>Keisei Skyliner jusqu'à Ueno (41 min) + JR Nippori/Komagome</td><td>2 580 ¥ + ≈ 220 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Narita+Airport+Terminal+1&destination=Hon-Komagome+Station+Tokyo&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>09/02</td><td>Tokyo ↔ Mont Takao (A/R)</td><td>≈ 1 h</td><td>Keio depuis Shinjuku ou JR + changement</td><td>≈ 1 300 ¥ A/R</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Hon-Komagome+Station&destination=Mount+Takao&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>10/02</td><td>Tokyo ↔ Kamakura</td><td>≈ 1 h</td><td>JR ligne Yokosuka directe depuis Tokyo/Ueno</td><td>≈ 950 ¥ l'aller</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Tokyo+Station&destination=Kamakura+Station&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>11/02</td><td>Tokyo (Ueno) → Ito</td><td>1 h50 / 2 h30</td><td>Shinkansen via Atami + JR, ou Odoriko direct (le plus simple avec bagages)</td><td>4 620 ¥ / 2 420 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Ueno+Station&destination=Ito+Station&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>13/02</td><td>Ito → Kyoto</td><td>3 h15 – 3 h40</td><td>Odoriko ou Shinkansen via Atami/Tokyo</td><td>≈ 13 000 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Ito+Station&destination=Kyoto+Station&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>16/02</td><td>Kyoto → Onomichi</td><td>≈ 1 h40</td><td>Nozomi → Fukuyama + local, ou Kodama → Shin-Onomichi (le Nozomi ne s'arrête pas à Onomichi)</td><td>≈ 11 200 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Onomichi+Station&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>17/02</td><td>Onomichi ↔ Tomonoura (A/R)</td><td>1 h45</td><td>Local → Fukuyama (20 min) + bus Tomotetsu (30 min)</td><td>≈ 1 900 ¥ A/R</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Onomichi+Station&destination=Tomonoura&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>18/02</td><td>Onomichi → Hiroshima</td><td>40 min</td><td>Local → Shin-Onomichi + Shinkansen Kodama/Sakura</td><td>≈ 4 300 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Onomichi+Station&destination=Hiroshima+Station&travelmode=transit" target="_blank">🗺️</a></td></tr>
+      <tr><td>20/02</td><td>Hiroshima → Tokyo → Haneda</td><td>4 h – 4 h30</td><td>Shinkansen Nozomi (3h50) + monorail vers HND</td><td>18 380–19 560 ¥ + 500 ¥</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=Hiroshima+Station&destination=Haneda+Airport+Terminal+3&travelmode=transit" target="_blank">🗺️</a></td></tr>
+    </table>
+  </div>
+
+  <div class="callout">
+    <h4>💡 Astuces trains</h4>
+    <ul style="padding-left:18px;margin-top:6px;font-size:.92rem">
+      <li><b>Réserver les Shinkansen sur <a href="https://smart-ex.jp/en/" target="_blank">smartEX</a></b> (appli/site en anglais, jusqu'à 6 passagers, sans frais) ; tarifs réduits « EX Hayatoku 21 » si réservés 21 jours à l'avance (Hiroshima → Tokyo à 15 390 ¥ au lieu de 19 560 ¥).</li>
+      <li><b>Gros bagages (161–250 cm)</b> en Shinkansen : réserver un siège avec emplacement bagages surdimensionnés — gratuit à la réservation, 1 000 ¥ d'amende sinon.</li>
+      <li>Horaires et correspondances en temps réel : <a href="https://www.google.com/maps/about/timeline/" target="_blank">Google Maps</a> (transports) ou <a href="https://ekitan.com" target="_blank">Ekitan</a>.</li>
+    </ul>
+  </div>
+
+  <div class="callout warn">
+    <h4>🚫 JR Pass : non rentable pour ce voyage</h4>
+    Le JR Pass national 14 jours coûte 80 000 ¥ par adulte, alors que le total des billets point à point de notre boucle familiale est d'environ 55 800 ¥ par personne. Acheter les billets individuellement. Le pass régional JR Kansai-Hiroshima (17 000 ¥, 5 jours) ne couvre pas non plus nos étapes (Ito est hors zone).
+  </div>
+</section>
+
+<!-- ======================= HEBERGEMENTS ======================= -->
+<section id="hebergements">
+  <h2><span class="num">6</span>Hébergements — le carnet d'adresses</h2>
+  <p class="lead">Huit hébergements pour 19 nuits. La boucle familiale est réservée pour 6 personnes (Lia comprise), sauf à Tokyo où Lia dort chez elle à Sendagi (3-2-4 Sendagi, International House, Bunkyo-ku, Tokyo 113-0022).</p>
+
+  <div class="grid cols2">
+
+    <div class="hotel">
+      <div class="top"><h3>Airbnb — Yanaka (Tokyo)</h3><span class="pill apayer">À payer 24/12/2026</span></div>
+      <div class="dates">31/01 → 02/02 · 1 nuit · 207 €</div>
+      <ul>
+        <li>Chambre chez l'hôte Dong · check-in après 16h, check-out avant 10h</li>
+        <li>3-chōme-2-2 Yanaka, Taito City, Tokyo 110-0001</li>
+        <li>Code réservation : HM8MNPHS2P · hôte : +81 90-6470-1514</li>
+        <li>Annulation gratuite avant le 01/01, partielle avant le 24/01</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.airbnb.fr/rooms/1488250387559780540" target="_blank">🏠 Annonce Airbnb</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=3-2-2+Yanaka+Taito+City+Tokyo" target="_blank">🗺️ Plan</a>
+        <a class="btn" href="tel:+819064701514">📞 Hôte</a>
+      </div>
+    </div>
+
+    <div class="hotel">
+      <div class="top"><h3>Nikko Station Hotel Classic</h3><span class="pill apayer">À payer · annul. gr. 29/01</span></div>
+      <div class="dates">02/02 → 04/02 · 2 nuits · 47 899 ¥ ≈ 282 €</div>
+      <ul>
+        <li>Petit-déjeuner inclus · à 100 m de la gare Tobu-Nikko</li>
+        <li>Check-in 15h–23h30 · check-out 6h–10h</li>
+        <li>Aioicho 3-1, Nikko, Tochigi</li>
+        <li>Réf. 5349804293 · tél. +81 288-53-1000</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.booking.com/hotel/jp/nikko-station-classic.fr.html" target="_blank">🏠 Booking</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Nikko+Station+Hotel+Classic+Aioicho+3-1" target="_blank">🗺️ Plan</a>
+        <a class="btn" href="tel:+81288531000">📞 Appeler</a>
+      </div>
+    </div>
+
+    <div class="hotel">
+      <div class="top"><h3>Private Onsen Villa — Nasu (Rosewood Garden &amp; Villa)</h3><span class="pill apayer">Annul. gr. 20/01</span></div>
+      <div class="dates">04/02 → 06/02 · 2 nuits · 45 882 ¥ ≈ 270 €</div>
+      <ul>
+        <li>Villa avec onsen privé · petit-déjeuner inclus</li>
+        <li>Check-in 14h30–20h · check-out 8h–9h30</li>
+        <li>Yumoto 719-9, Nasu, Tochigi (montagne, 30 min de Kuroiso)</li>
+        <li>Réf. 6351473289 · tél. +81 90-7318-9963</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.booking.com/hotel/jp/rozuutudogadenandovuira.en-gb.html" target="_blank">🏠 Booking</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=719-9+Yumoto+Nasu+Tochigi" target="_blank">🗺️ Plan</a>
+        <a class="btn" href="tel:+819073189963">📞 Appeler</a>
+      </div>
+    </div>
+
+    <div class="hotel">
+      <div class="top"><h3>Bunkyo House 301 (Tokyo)</h3><span class="pill apayer">À payer ≈ 20/01 · annul. gr. 22/01</span></div>
+      <div class="dates">06/02 → 11/02 · 5 nuits · 129 222 ¥ ≈ 760 €</div>
+      <ul>
+        <li>Studio 2 chambres pour 5 (Lia dort chez elle à Sendagi, à deux pas)</li>
+        <li>Clés dans un coffre sur place — code envoyé le matin du check-in</li>
+        <li>Check-in 15h–23h30 (6/02) · check-out 5h30–11h (11/02)</li>
+        <li>Hon-Komagome 3-10-23, Bunkyo-ku · réf. 5764931747 · +81 80-9823-0422</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.booking.com/hotel/jp/wen-jing-hausu.fr.html" target="_blank">🏠 Booking</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hon-Komagome+3-10-23+Bunkyo+Tokyo" target="_blank">🗺️ Plan</a>
+        <a class="btn" href="tel:+818098230422">📞 Hôte</a>
+      </div>
+    </div>
+
+    <div class="hotel">
+      <div class="top"><h3>K's House Ito Onsen — Ryokan historique</h3><span class="pill paye">PAYÉ</span></div>
+      <div class="dates">11/02 → 13/02 · 2 nuits · 49 713 ¥ ≈ 314 €</div>
+      <ul>
+        <li>Chambre familiale style japonais, vue rivière, pour 6</li>
+        <li>Check-in 15h–20h · check-out 8h–11h</li>
+        <li>+ taxe onsen 3 600 ¥ à régler sur place (300 ¥/pers/nuit)</li>
+        <li>Higashimatsubara 12-13, Ito, Shizuoka · réf. 6483129496 · +81 557-35-9444</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.booking.com/hotel/jp/historical-ryokan-hostel-k-s-house-ito-onsen.fr.html" target="_blank">🏠 Booking</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=K%27s+House+Ito+Onsen+Higashimatsubara+12-13" target="_blank">🗺️ Plan</a>
+        <a class="btn" href="tel:+81557359444">📞 Appeler</a>
+      </div>
+    </div>
+
+    <div class="hotel">
+      <div class="top"><h3>Travelodge Kyoto Shijo Karasuma</h3><span class="pill paye">PAYÉ</span></div>
+      <div class="dates">13/02 → 16/02 · 3 nuits · 80 934 ¥ ≈ 476 €</div>
+      <ul>
+        <li>2 chambres (Queen + familiale) pour 6 · petit-déjeuner inclus</li>
+        <li>Check-in dès 15h · check-out avant 10h</li>
+        <li>Nakagyo-ku Matsuuracho 848-2, Kyoto</li>
+        <li>Réf. 6281388092 · tél. +81 75-330-9770</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.booking.com/hotel/jp/travelodge-kyoto-shijo-karasuma.fr.html" target="_blank">🏠 Booking</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Travelodge+Kyoto+Shijo+Karasuma" target="_blank">🗺️ Plan</a>
+        <a class="btn" href="tel:+81753309770">📞 Appeler</a>
+      </div>
+    </div>
+
+    <div class="hotel">
+      <div class="top"><h3>Onomichi Guest House Miharashi-tei</h3><span class="pill paye">PAYÉ</span></div>
+      <div class="dates">16/02 → 18/02 · 2 nuits · 38 487 ¥ ≈ 226 €</div>
+      <ul>
+        <li>Chambre familiale vue mer pour 6 · check-in 15h–22h, check-out 6h–10h</li>
+        <li>⚠️ Plus de 350 marches pour y monter, pas d'accès voiture — voyager léger !</li>
+        <li>Hirashi Tsuchido 15-7, Onomichi</li>
+        <li>Réf. 5129958089 · tél. +81 848-23-3864</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.booking.com/hotel/jp/onomichi-guest-houes-miharashitei.fr.html" target="_blank">🏠 Booking</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Onomichi+Guest+House+Miharashi-tei" target="_blank">🗺️ Plan</a>
+        <a class="btn" href="tel:+81848233864">📞 Appeler</a>
+      </div>
+    </div>
+
+    <div class="hotel">
+      <div class="top"><h3>Dai3kuboi by b hotel (Hiroshima)</h3><span class="pill paye">PAYÉ</span></div>
+      <div class="dates">18/02 → 20/02 · 2 nuits · 50 315 ¥ ≈ 296 €</div>
+      <ul>
+        <li>Appartement 2 chambres pour 6, près du Parc de la Paix</li>
+        <li>Self check-in dès 15h — instructions envoyées vers 9h le jour J · check-out avant 11h</li>
+        <li>Naka-ku Tokaichimachi 1-1-33, Hiroshima</li>
+        <li>Réf. 6281362876 · tél. +81 50-5358-4635</li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://www.booking.com/hotel/jp/bhotel-130-2-bedroom-apt-for-9-ppl-near-peacepark.fr.html" target="_blank">🏠 Booking</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Tokaichimachi+1-1-33+Naka-ku+Hiroshima" target="_blank">🗺️ Plan</a>
+        <a class="btn" href="tel:+815053584635">📞 Appeler</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BUDGET ======================= -->
+<section id="budget">
+  <h2><span class="num">7</span>Budget récapitulatif</h2>
+  <p class="lead">Grands postes ≈ 9 500 € au total, hors repas, visites et dépenses courantes. Prévoir une cagnotte journalière d'environ 6 000–8 000 ¥ par adulte (repas, transports urbains, entrées).</p>
+
+  <div class="grid cols2">
+    <div class="card">
+      <h3 style="margin-bottom:10px">Répartition des grands postes</h3>
+      <div class="bar"><div class="lab"><span>✈️ Vols (5 p.)</span><span>4 580 €</span></div><div class="track"><div class="fill f1" style="width:100%"></div></div></div>
+      <div class="bar"><div class="lab"><span>🏨 Hébergements (19 nuits)</span><span>2 811 €</span></div><div class="track"><div class="fill f2" style="width:61%"></div></div></div>
+      <div class="bar"><div class="lab"><span>🚄 Trains</span><span>2 100 €</span></div><div class="track"><div class="fill f3" style="width:46%"></div></div></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:10px">Détail</h3>
+      <div class="tablewrap" style="box-shadow:none">
+        <table style="min-width:0">
+          <tr><th>Poste</th><th>Montant</th><th>Statut</th></tr>
+          <tr><td>Vols Adrien + Marianne</td><td>1 744 €</td><td><span class="pill paye">Payé</span></td></tr>
+          <tr><td>Vols Chloé, Baptiste, Hanaé</td><td>2 836 €</td><td><span class="pill paye">Payé</span></td></tr>
+          <tr><td>Hébergements (8 séjours)</td><td>2 811 €</td><td><span class="pill info">4 payés / 4 à payer</span></td></tr>
+          <tr><td>Trains boucle A&amp;M (2 p.)</td><td>≈ 130 €</td><td><span class="pill apayer">Sur place</span></td></tr>
+          <tr><td>Trains boucle familiale (6 p.)</td><td>≈ 2 000 €</td><td><span class="pill apayer">Sur place / smartEX</span></td></tr>
+          <tr class="total"><td>TOTAL</td><td>≈ 9 500 €</td><td></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout warn" style="margin-top:14px">
+    <h4>📅 Échéances à ne pas manquer</h4>
+    <ul style="padding-left:18px;margin-top:6px;font-size:.92rem">
+      <li><b>24/12/2026</b> — paiement Airbnb Tokyo (207 €)</li>
+      <li><b>20/01/2027</b> — date limite d'annulation gratuite Nasu ; paiement Bunkyo House 301 prévu ce jour-là</li>
+      <li><b>22/01/2027</b> — date limite d'annulation gratuite Bunkyo House 301 (ensuite 26 108 ¥, puis 123 222 ¥ à partir du 07/02)</li>
+      <li><b>29/01/2027</b> — date limite d'annulation gratuite Nikko Station Hotel</li>
+      <li><b>Sur place</b> — taxe onsen Ito (3 600 ¥), taxes de séjour éventuelles, repas et visites</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================= CONSEILS ======================= -->
+<section id="conseils">
+  <h2><span class="num">8</span>Conseils pratiques sur place</h2>
+  <div class="grid cols3">
+
+    <div class="tip"><h3>💳 Carte IC (Suica / PASMO)</h3><p>Indispensable pour les 5 venant de France (Lia l'a déjà !). À ajouter dans Apple Wallet / Google Wallet avant le départ — règle métros, bus, trains locaux et konbini.</p></div>
+
+    <div class="tip"><h3>🎫 smartEX</h3><p>Installer l'appli avant le départ et y enregistrer les 6 voyageurs. Réserver les Shinkansen Tokyo–Kyoto–Onomichi–Hiroshima–Tokyo quelques jours à l'avance. <a href="https://smart-ex.jp/en/" target="_blank">smart-ex.jp</a></p></div>
+
+    <div class="tip"><h3>🧳 Takkyubin — transfert de bagages</h3><p>Envoyer les grosses valises d'hôtel à hôtel (≈ 2 000–2 500 ¥ par bagage, livraison en 24 h) — idéal pour Onomichi (350 marches !). Lia peut aussi garder des affaires à Tokyo. <a href="https://www.kuronekoyamato.co.jp/en/" target="_blank">Yamato Transport</a></p></div>
+
+    <div class="tip"><h3>🎟️ teamLab Planets</h3><p>Billetterie en ligne obligatoire — réserver dès maintenant pour le 08/02. <a href="https://www.teamlab.art/e/planets/" target="_blank">Billets</a></p></div>
+
+    <div class="tip"><h3>🌅 Partir tôt</h3><p>Fushimi Inari et la forêt de bambous d'Arashiyama : y être avant 8h pour éviter la foule. À Miyajima, marée haute le matin pour le torii flottant.</p></div>
+
+    <div class="tip"><h3>♨️ Étiquette onsen</h3><p>Se laver et se rincer entièrement avant d'entrer dans le bain, petite serviette discrète, pas de vêtement dans l'eau. Les tatouages peuvent poser problème dans les bains publics — la villa de Nasu et la chambre de K's House limitent le risque.</p></div>
+
+    <div class="tip"><h3>💴 Argent</h3><p>Le Japon reste en partie liquide — retirer aux distributeurs 7-Eleven ou Japan Post (cartes étrangères acceptées).</p></div>
+
+    <div class="tip"><h3>🛂 Formalités</h3><p>Renseigner <a href="https://services.digital.go.jp/en/visit-japan-web/" target="_blank">Visit Japan Web</a> (immigration + douane) avant le départ ; passeports valides toute la durée du séjour.</p></div>
+
+    <div class="tip"><h3>🚑 Urgences</h3><p><b>110</b> police · <b>119</b> ambulance/pompiers · Japan Visitor Hotline 24h/24 : <a href="tel:+815038162787">050-3816-2787</a> (anglais). Pharmacies : panneau vert avec une croix.</p></div>
+
+    <div class="tip"><h3>🧣 Météo de février</h3><p>2 à 10 °C, sec et ensoleillé en général. Prévoir couches, bonnets et gants pour le Mont Takao et Miyajima (vent).</p></div>
+
+    <div class="tip"><h3>🌙 Derniers trains</h3><p>Dernier Skyliner de Narita ≈ 23h ; en cas de retard du vol des enfants, les trains JR depuis Narita fonctionnent aussi (N'EX ≈ 3 140 ¥).</p></div>
+
+    <div class="tip"><h3>📶 Connexion</h3><p>Wi-Fi gratuit dans les konbini, gares et cafés ; sinon pocket Wi-Fi ou eSIM (Saily, Ubigi...) à souscrire avant le départ.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Guide Voyage Japon 2027 · généré le 23 novembre 2026 · Prix indicatifs (≈ 170 ¥ = 1 €), tarifs train 2026 — vérifier sur <a href="https://smart-ex.jp/en/" target="_blank">smartEX</a> avant achat.
+</footer>
+
+<button id="top-btn" aria-label="Retour en haut">↑</button>
+
+<script>
+// Nav active state
+const links = [...document.querySelectorAll('nav a')];
+const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+const spy = () => {
+  let idx = 0;
+  sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 140) idx = i; });
+  links.forEach(a => a.classList.remove('active'));
+  if (links[idx]) links[idx].classList.add('active');
+};
+window.addEventListener('scroll', () => { spy(); toggleTop(); }, {passive:true});
+spy();
+// Back to top
+const btn = document.getElementById('top-btn');
+const toggleTop = () => btn.classList.toggle('show', window.scrollY > 600);
+btn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+toggleTop();
+</script>
+</body>
+</html>
