@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Voyage au Japon — Hiver 2027 · Guide de voyage</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <style>
 :root{
   --red:#bc002d; --red-dark:#8f0022; --ink:#23232e; --muted:#6b6b76;
@@ -20,10 +22,11 @@ a{color:var(--red);text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* ---------- header ---------- */
-header.hero{background:linear-gradient(165deg,#2a2a3a 0%,#3d2b33 55%,var(--red-dark) 100%);
-  color:#fff;padding:60px 20px 40px;position:relative;overflow:hidden}
-.hero-inner img.cover{display:block;width:min(460px,100%);margin:30px auto 50px;border-radius:14px;
-  border:5px solid rgba(255,255,255,.92);box-shadow:0 12px 34px rgba(0,0,0,.45)}
+header.hero{background:
+  linear-gradient(180deg,rgba(28,28,42,.88) 0%,rgba(28,28,42,.28) 38%,rgba(70,15,45,.40) 64%,rgba(110,0,28,.88) 100%),
+  url("cover.jpg") center/cover no-repeat;
+  background-position:49% 57%;
+  color:#fff;padding:64px 20px 150px;position:relative;overflow:hidden}
 header.hero::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:70px;
   background:var(--paper);clip-path:polygon(0 100%,100% 0,100% 100%)}
 .hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
@@ -146,6 +149,19 @@ td .small{color:var(--muted);font-size:.82rem;display:block}
 .tip h3{font-size:.98rem;display:flex;gap:8px;align-items:baseline}
 .tip p{color:var(--muted);font-size:.9rem;margin-top:4px}
 
+/* ---------- carte ---------- */
+#map{height:430px;background:#e8ece8;position:relative;z-index:1}
+.maplegend{position:absolute;top:12px;right:12px;z-index:800;background:#ffffffee;padding:8px 12px;
+  border-radius:10px;font-size:.78rem;box-shadow:var(--shadow);border:1px solid var(--line)}
+.maplegend span{display:flex;align-items:center;gap:6px;margin:2px 0}
+.maplegend i{width:22px;height:4px;border-radius:2px;display:inline-block}
+.pin{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;
+  justify-content:center;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.45);font-size:13px}
+.maptip{background:#ffffffd9;border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:.78rem;
+  box-shadow:var(--shadow);padding:2px 8px;border-radius:8px}
+.maptip::before{display:none}
+.leaflet-container{font:inherit}
+
 footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 20px;text-align:center;
   color:var(--muted);font-size:.85rem}
 #top-btn{position:fixed;bottom:22px;right:22px;width:46px;height:46px;border-radius:50%;
@@ -168,7 +184,6 @@ footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 20px;text-a
       <span class="chip">🚄 Tokyo · Nikko · Nasu · Ito · Kyoto · Onomichi · Hiroshima</span>
       <span class="chip">💴 Conversion ≈ 170 ¥ = 1 €</span>
     </div>
-    <img class="cover" src="cover.jpg" alt="Photo de famille — voyage au Japon 2027">
   </div>
 </header>
 
@@ -213,6 +228,20 @@ footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 20px;text-a
       <div class="tl-item"><div class="tl-date">16 – 18 FÉVR.</div><div class="tl-title">Onomichi</div><div class="tl-desc">Temple Senko-ji · excursion à Tomonoura</div></div>
       <div class="tl-item"><div class="tl-date">18 – 20 FÉVR.</div><div class="tl-title">Hiroshima</div><div class="tl-desc">Mémorial de la Paix, Miyajima</div></div>
       <div class="tl-item"><div class="tl-date">20 – 21 FÉVR.</div><div class="tl-title">Retour en France</div><div class="tl-desc">Train Hiroshima → Tokyo (≈ 4 h) puis vol 22h55 depuis Haneda, arrivée CDG 09h15 (Lia reste à Tokyo)</div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;padding:0;overflow:hidden">
+    <div style="position:relative">
+      <div id="map"><p style="padding:24px 20px;text-align:center;color:var(--muted);font-size:.9rem">Carte interactive — nécessite une connexion internet.<br>En hors-ligne, utilisez les liens Google Maps ci-dessous.</p></div>
+      <div class="maplegend">
+        <span><i style="background:#c9a227"></i> Adrien &amp; Marianne (31/01 – 06/02)</span>
+        <span><i style="background:#bc002d"></i> Boucle familiale (07 – 20/02)</span>
+      </div>
+    </div>
+    <div class="btns" style="padding:14px 16px">
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Tokyo+Station&destination=Tokyo+Station&waypoints=Nikko|Nasu+Yumoto&travelmode=transit" target="_blank">🗺️ Boucle 1 — Google Maps</a>
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Tokyo+Station&destination=Haneda+Airport+Terminal+3&waypoints=Ito|Kyoto|Onomichi|Hiroshima&travelmode=transit" target="_blank">🗺️ Boucle 2 — Google Maps</a>
     </div>
   </div>
 </section>
@@ -646,6 +675,40 @@ const btn = document.getElementById('top-btn');
 const toggleTop = () => btn.classList.toggle('show', window.scrollY > 600);
 btn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 toggleTop();
+
+// ---- Carte de la route ----
+window.addEventListener('load', () => {
+  if (!window.L) return; // pas de connexion → message de repli déjà affiché
+  const map = L.map('map', {scrollWheelZoom:true});
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom:18,
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  const TOKYO=[35.6812,139.7671], HANEDA=[35.5494,139.7798];
+  const loop1=[TOKYO,[36.7195,139.6985],[37.0654,140.0059],TOKYO];           // Tokyo→Nikko→Nasu→Tokyo
+  const loop2=[TOKYO,[34.8683,139.0986],[35.0037,135.7593],[34.2936,133.2065],[34.3853,132.4594],HANEDA]; // Tokyo→Ito→Kyoto→Onomichi→Hiroshima→Haneda
+
+  L.polyline(loop1,{color:'#c9a227',weight:3.5,dashArray:'9 9',opacity:.95}).addTo(map);
+  L.polyline(loop2,{color:'#bc002d',weight:4,opacity:.95}).addTo(map);
+
+  const stops=[
+    {n:1,name:'Tokyo',ll:TOKYO,loop:1},
+    {n:2,name:'Nikko',ll:[36.7195,139.6985],loop:1},
+    {n:3,name:'Nasu (onsen)',ll:[37.0654,140.0059],loop:1},
+    {n:4,name:'Ito',ll:[34.8683,139.0986],loop:2},
+    {n:5,name:'Kyoto',ll:[35.0037,135.7593],loop:2},
+    {n:6,name:'Onomichi',ll:[34.2936,133.2065],loop:2},
+    {n:7,name:'Hiroshima',ll:[34.3853,132.4594],loop:2}
+  ];
+  const pin=(html,c)=>L.divIcon({className:'',html:`<div class="pin" style="background:${c}">${html}</div>`,iconSize:[30,30],iconAnchor:[15,15]});
+  stops.forEach(s=>L.marker(s.ll,{icon:pin(s.n,s.loop===1?'#c9a227':'#bc002d')})
+    .addTo(map).bindTooltip(s.name,{permanent:true,direction:'bottom',offset:[0,13],className:'maptip'}));
+  L.marker(HANEDA,{icon:pin('✈','#1e6fb5')}).addTo(map)
+    .bindTooltip('Vol retour 20/02 — Haneda',{direction:'right',offset:[12,0],className:'maptip'});
+
+  map.fitBounds(loop2.concat(loop1),{padding:[28,28]});
+});
 </script>
 </body>
 </html>
